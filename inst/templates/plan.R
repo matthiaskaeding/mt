@@ -1,6 +1,6 @@
 
 
-plan = drake::make_plan(
+plan = drake::drake_plan(
 
 
 

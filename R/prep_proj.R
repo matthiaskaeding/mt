@@ -13,7 +13,7 @@
 prep_proj <- function(
   target_folder, drake = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "doc"),
-  github){
+  github = NULL){
 
   if(!"R" %in% default_folders) stop("Folder <R> necessary")
 
@@ -24,8 +24,8 @@ prep_proj <- function(
     stop("Aborting, folder already exists")
   }
 
-  if(!missing(github)) {
-    if(!github %in% c("public", "private")) stop('If specified, <github> must be either "private" or "public"')
+  if(!is.null(github)) {
+    stop('If not NULL,  <github> must be either "private" of "public" ')
   }
 
 
@@ -74,9 +74,9 @@ prep_proj <- function(
 
   proj_name = basename(target_folder)
 
-  if(github == "private") {
+  if(identical(github, "private")) {
     gh::gh("POST /user/repos", name = proj_name, private = TRUE)
-  } else if (github == "public") {
+  } else if (identical(github, "public")) {
     gh::gh("POST /user/repos", name = proj_name, private = FALSE)
   }
 
