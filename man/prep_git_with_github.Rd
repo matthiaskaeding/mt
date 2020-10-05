@@ -6,7 +6,7 @@
 \usage{
 prep_git_with_github(
   target_folder,
-  ignore = c("/.Rproj.user", "*.Rhistory", "DS_store")
+  ignore = c(".Rproj.user", ".Rhistory", ".DS_store")
 )
 }
 \arguments{

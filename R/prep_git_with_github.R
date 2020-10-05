@@ -24,7 +24,7 @@ prep_git_with_github <- function(target_folder, ignore = c(".Rproj.user", ".Rhis
   git2r::branch_rename(git2r::branches(git_rep)$master, "main")
 
   url = sprintf("https://github.com/matthiaskaeding/%s.git", proj_name)
-  git2r::remote_add(git_rep, proj_name, url)
+  git2r::remote_add(git_rep, "origin", url)
 
   git2r::push(git_rep, "origin", "refs/heads/main", set_upstream = TRUE,
               credentials = git2r::cred_token())
