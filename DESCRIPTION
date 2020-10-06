@@ -20,4 +20,5 @@ Imports:
     data.table,
     here,
     git2r,
-    gh
+    gh,
+    clipr
