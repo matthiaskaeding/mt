@@ -2,12 +2,11 @@ Package: matthiastools
 Title: Collection of helper functions
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Matthias",
+           family = "Kaeding",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "kaedingmatthias@gmail.com")
+Description: Some helper functions.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
@@ -18,7 +17,8 @@ URL: https://github.com/matthiaskaeding/matthiastools
 BugReports: https://github.com/matthiaskaeding/matthiastools/issues
 Imports: 
     data.table,
-    here,
     git2r,
     gh,
     clipr
+Suggests:
+    tinytest
