@@ -15,8 +15,12 @@
 add_cols = function(TARGET, SOURCE, on, cols) {
 
   SOURCE[, if(.N > 1L) stop("Rows combination in <on> in SOURCE not unique"), keyby = on]
-  expr = make_update_expression(cols)
-  TARGET[SOURCE, eval(expr), on = on, allow.cartesian = FALSE]
-  invisible(TARGET)
+  i = SOURCE[TARGET, on = on, which = TRUE, nomatch = NA]
+
+  for(var in cols) {
+    set(TARGET, NULL, var, SOURCE[[var]][i])
+  }
+
+  TARGET
 
 }
