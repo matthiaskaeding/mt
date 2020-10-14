@@ -3,6 +3,7 @@
 export(add_cols)
 export(bl_from_ags)
 export(find_pattern_in_text_files)
+export(make_hive_folder)
 export(prep_git_with_github)
 export(prep_proj)
 export(rep_windows_path)

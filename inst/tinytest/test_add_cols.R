@@ -4,7 +4,6 @@ cols = c("x", "y")
 on = "id"
 expect_error(add_cols(TARGET, SOURCE_not_unique, on = "id", cols = cols))
 
-
 TARGET = data.table::data.table(id = 1:10)
 SOURCE = data.table::data.table(id = 1:5)[, x := rnorm(.N)][, y := rnorm(.N)]
 add_cols(TARGET, SOURCE, on = "id", cols = c("x", "y"))
@@ -32,3 +31,12 @@ SOURCE = data.table::data.table(id = c(11:15))[, x := rnorm(.N)][, y := rnorm(.N
 add_cols(TARGET, SOURCE, "id", c("x", "y"))
 expect_true(all(is.na(TARGET$x)))
 
+N = 1e3
+TARGET = data.table::data.table(id = 1:1e3)
+SOURCE = data.table::data.table(id = sample(1e3, 1e2))[, x := rnorm(.N)][, y := rnorm(.N)]
+
+add_cols(TARGET, SOURCE, "id", c("x", "y"))
+X = SOURCE[TARGET, on = on]
+
+expect_identical(X$x, TARGET$x)
+expect_identical(X$y, TARGET$y)
