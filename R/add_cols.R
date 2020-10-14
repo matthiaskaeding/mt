@@ -17,10 +17,13 @@ add_cols = function(TARGET, SOURCE, on, cols) {
   SOURCE[, if(.N > 1L) stop("Rows combination in <on> in SOURCE not unique"), keyby = on]
   i = SOURCE[TARGET, on = on, which = TRUE, nomatch = NA]
 
+  rows = which(!is.na(i))
+  i2 = i[rows]
+
   for(var in cols) {
-    set(TARGET, NULL, var, SOURCE[[var]][i])
+    set(TARGET, rows, var, SOURCE[[var]][i2])
   }
 
-  TARGET
+  invisible(TARGET)
 
 }
