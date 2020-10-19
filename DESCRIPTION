@@ -19,6 +19,7 @@ Imports:
     data.table,
     git2r,
     gh,
-    clipr
+    clipr,
+    uuid
 Suggests:
     tinytest

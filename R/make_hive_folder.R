@@ -20,6 +20,10 @@ make_hive_folder = function(basefolder, ..., pairs = list(...)) {
 
   }
 
-  file.path(out, "data.parquet")
+  file.path(out,
+            paste0(
+              uuid::UUIDgenerate(n = length(out)), ".parquet"
+              )
+            )
 
 }
