@@ -40,3 +40,31 @@ X = SOURCE[TARGET, on = on]
 
 expect_identical(X$x, TARGET$x)
 expect_identical(X$y, TARGET$y)
+
+### Case with varying names
+TARGET = data.table::data.table(id0 = 1:1e3)
+SOURCE = data.table::data.table(id1 = sample(1e3, 1e2))[, x := rnorm(.N)][, y := rnorm(.N)]
+
+X = SOURCE[TARGET, on = c("id1" = "id0")]
+add_cols(TARGET, SOURCE, c("id1" = "id0"), c("x", "y"))
+
+expect_identical(X$x, TARGET$x)
+expect_identical(X$y, TARGET$y)
+
+### Wrong names
+TARGET = data.table::data.table(id0 = 1:1e3)
+SOURCE = data.table::data.table(id1 = sample(1e3, 1e2))[, x := rnorm(.N)][, y := rnorm(.N)]
+
+expect_error(
+  add_cols(TARGET, SOURCE, c("id2" = "id0"), c("x", "y"))
+)
+expect_error(
+  add_cols(TARGET, SOURCE, c("id1" = "id2"), c("x", "y"))
+)
+
+expect_error(
+  add_cols(TARGET, SOURCE, c("id1" = "id0"), c("z"))
+)
+
+
+

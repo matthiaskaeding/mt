@@ -14,7 +14,20 @@
 
 add_cols = function(TARGET, SOURCE, on, cols) {
 
-  SOURCE[, if(.N > 1L) stop("Rows combination in <on> in SOURCE not unique"), keyby = on]
+  on_SOURCE = if(!is.null(names(on))) names(on) else on
+  on_TARGET = on
+
+  nms_SOURCE = names(SOURCE)
+  nms_TARGET = names(TARGET)
+
+  if(!all(cols %in% nms_SOURCE)) stop("Not all cols are in SOURCE")
+  if(!on_SOURCE %in% nms_SOURCE) stop(sprintf("Col %s not in SOURCE", on_SOURCE))
+  if(!on_TARGET %in% nms_TARGET) stop(sprintf("Col %s not in TARGET", on_TARGET))
+
+
+  SOURCE[, if(.N > 1L) stop("Rows combination in <on> in SOURCE not unique"),
+         keyby = on_SOURCE]
+
   i = SOURCE[TARGET, on = on, which = TRUE, nomatch = NA]
 
   rows = which(!is.na(i))
