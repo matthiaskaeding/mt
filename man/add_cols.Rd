@@ -10,16 +10,26 @@ add_cols(TARGET, SOURCE, on, cols)
 \item{TARGET}{Target data.table}
 
 \item{SOURCE}{Source data.table}
+
+\item{on}{Which variables to join on. When unequal for TARGET and SOURCE,
+must be named vector, where the names correspond to the SOURCE.}
+
+\item{cols}{Which cols to add}
 }
 \description{
 Only done when there if rows are uniquely identified by on
 Returns TARGET invisibly
 }
 \examples{
-TARGET = data.table(id = 1:10)
+TARGET = data.table(id = rep(1:10, each = 3))
 SOURCE = data.table(id = 1:5)[, x := rnorm(.N)][, y := rnorm(.N)]
 add_cols(TARGET, SOURCE, on = "id", cols = c("x", "y"))
 TARGET[]
+# Case of unequal named join vars
+X = data.table(id0 = 1:10)
+Y = data.table(id1 = 3:5)[, z := c("a", "b", "c")]
+add_cols(X, Y, on = c("id1" = "id0"), cols = "z")
+X[]
 }
 \keyword{Update}
 \keyword{data.table}
