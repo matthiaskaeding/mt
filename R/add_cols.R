@@ -29,8 +29,8 @@ add_cols = function(TARGET, SOURCE, on, cols) {
   nms_TARGET = names(TARGET)
 
   if(!all(cols %in% nms_SOURCE)) stop("Not all cols are in SOURCE")
-  if(!on_SOURCE %in% nms_SOURCE) stop(sprintf("Col %s not in SOURCE", on_SOURCE))
-  if(!on_TARGET %in% nms_TARGET) stop(sprintf("Col %s not in TARGET", on_TARGET))
+  if(!all(on_SOURCE %in% nms_SOURCE)) stop(sprintf("Col %s not in SOURCE", on_SOURCE))
+  if(!all(on_TARGET %in% nms_TARGET)) stop(sprintf("Col %s not in TARGET", on_TARGET))
   is_cols_nms_TARGET = intersect(cols, nms_TARGET)
 
   if(length(is_cols_nms_TARGET)) {
