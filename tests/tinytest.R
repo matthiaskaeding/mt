@@ -1,1 +1,3 @@
-if (requireNamespace("tinytest", quietly=TRUE)){tinytest::test_package("PACKAGENAME")}
+if (requireNamespace("tinytest", quietly=TRUE)) {
+  tinytest::test_package("matthiastools")
+}
