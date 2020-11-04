@@ -12,6 +12,8 @@ make_hive_folder(basefolder, ..., pairs = list(...), ext = ".parquet")
 \item{...}{Key value pairs. Specify this OR pairs}
 
 \item{pairs}{Named list of key values parirs; etc. day=01}
+
+\item{ext}{File extension; e.g. '.fst'.}
 }
 \description{
 Makes a hive_folder for arrow
