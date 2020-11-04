@@ -4,7 +4,7 @@
 \alias{make_hive_folder}
 \title{Makes a hive_folder for arrow}
 \usage{
-make_hive_folder(basefolder, ..., pairs = list(...))
+make_hive_folder(basefolder, ..., pairs = list(...), ext = ".parquet")
 }
 \arguments{
 \item{basefolder}{Basic folder}

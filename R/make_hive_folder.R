@@ -8,7 +8,7 @@
 #' @examples
 #' make_folder("", year = 2015, month = "01", day = "15")
 
-make_hive_folder = function(basefolder, ..., pairs = list(...)) {
+make_hive_folder = function(basefolder, ..., pairs = list(...), ext = ".parquet") {
 
 
   out = basefolder
@@ -22,7 +22,7 @@ make_hive_folder = function(basefolder, ..., pairs = list(...)) {
 
   file.path(out,
             paste0(
-              uuid::UUIDgenerate(n = length(out)), ".parquet"
+              uuid::UUIDgenerate(n = length(out)), ext
               )
             )
 
