@@ -17,9 +17,9 @@ make_grids = function(xmin, xmax, ymin, ymax) {
   D = rbind(
     D[, .(x = x, y = y, idm)],
     D[, .(x = x, y =  y + 1e3, idm)],
-    D[, .(x = x + 1e3, y =  y + 1e3, idm)],
-    D[, .(x = x + 1e3, y =  y, idm)],
-    D[, .(x = x, y =  y, idm)]
+    D[, .(x = x + 1e3, y = y + 1e3, idm)],
+    D[, .(x = x + 1e3, y = y, idm)],
+    D[, .(x = x, y = y, idm)]
   )
 
   D[, row := .I]
