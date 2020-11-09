@@ -26,9 +26,9 @@ make_grids = function(xmin, xmax, ymin, ymax) {
   setkey(D, idm, row)
 
   TMP = D[, list(list(list(as.matrix(.SD)))), keyby = idm, .SDcols = -"row"]
-  poly = lapply(TMP$V1, st_polygon)
-  OUT = st_sf(idm = TMP$idm,  geometry = st_sfc(poly))
-  st_set_crs(OUT, 3035)
+  poly = lapply(TMP$V1, sf::st_polygon)
+  OUT = sf::st_sf(idm = TMP$idm,  geometry = sf::st_sfc(poly))
+  sf::st_set_crs(OUT, 3035)
 
 }
 
