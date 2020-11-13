@@ -7,7 +7,7 @@
 rd <- function() {
 
   source(here::here("_drake.R"))
-  drake_cache(here(".drake"))$unlock()
+  drake::drake_cache(here::here(".drake"))$unlock()
   drake::r_make()
 
 }
