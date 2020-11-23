@@ -2,16 +2,16 @@
 % Please edit documentation in R/loadd_fun.R
 \name{loadd_fun}
 \alias{loadd_fun}
-\title{drake::loadds all arguments of funtion
-Common usecase: on a make_X function}
+\title{drake::loadds all arguments of function
+Common usecase: loadd all objects while debugging a make_<object> function}
 \usage{
-loadd_fun(fun)
+loadd_fun(fun, envir = parent.frame())
 }
 \arguments{
 \item{fun}{function, whose arguments we want to loadd}
 }
 \description{
-drake::loadds all arguments of funtion
-Common usecase: on a make_X function
+drake::loadds all arguments of function
+Common usecase: loadd all objects while debugging a make_<object> function
 }
 \keyword{drake}
