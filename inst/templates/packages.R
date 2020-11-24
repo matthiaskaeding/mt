@@ -1,7 +1,7 @@
 options(conflicts.policy = list(error = TRUE, warn = FALSE))
 
 library(dplyr, mask.ok = "filter",
-        include = c("select", "filter", "slice", "mutate", "summarize"))
+        include.only = c("select", "filter", "slice", "mutate", "summarize"))
 
 library(drake)
 library(here)
