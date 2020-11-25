@@ -5,8 +5,6 @@
 #' @param ignore Character vector of files to ignore
 #' @keywords project, git, github
 #' @export
-#' @examples
-#' prep_project("awesome_project")
 
 prep_git_with_github <- function(target_folder, ignore = c(".Rproj.user", ".Rhistory", ".DS_store"),
                                  credentials){
