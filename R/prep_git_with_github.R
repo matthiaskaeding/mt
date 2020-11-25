@@ -8,7 +8,8 @@
 #' @examples
 #' prep_project("awesome_project")
 
-prep_git_with_github <- function(target_folder, ignore = c(".Rproj.user", ".Rhistory", ".DS_store")){
+prep_git_with_github <- function(target_folder, ignore = c(".Rproj.user", ".Rhistory", ".DS_store"),
+                                 credentials){
 
   print("Preparing git with github")
 
@@ -27,7 +28,7 @@ prep_git_with_github <- function(target_folder, ignore = c(".Rproj.user", ".Rhis
   git2r::remote_add(git_rep, "origin", url)
 
   git2r::push(git_rep, "origin", "refs/heads/main", set_upstream = TRUE,
-              credentials = git2r::cred_token())
+              credentials = credentials)
 
   invisible(target_folder)
 
