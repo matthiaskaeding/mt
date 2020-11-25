@@ -4,7 +4,6 @@
 #' @param target_folder Path of target folder
 #' @param drake use drake?
 #' @param default_folders List of folders to create
-#' @param github Set up github page? If specified, must be must be either "private" or "public",
 #' @keywords project, drake
 #' @export
 #' @examples
@@ -12,8 +11,8 @@
 
 prep_proj <- function(
   target_folder, drake = TRUE,
-  default_folders = c("R", "python", "data", "plots", "lit", "doc"),
-  github = NULL){
+  default_folders = c("R", "python", "data", "plots", "lit", "doc")
+  ){
 
   if(!"R" %in% default_folders) stop("Folder <R> necessary")
 
@@ -23,11 +22,6 @@ prep_proj <- function(
   } else {
     stop("Aborting, folder already exists")
   }
-
-  if(!is.null(github)) {
-    stop('If not NULL,  <github> must be either "private" of "public" ')
-  }
-
 
   # Create .here and Rstudio project file
   fn_here = file.path(target_folder, ".here")
@@ -63,6 +57,10 @@ prep_proj <- function(
   file.copy(file.path(folder_templates, "packages.R"),
             file.path(target_folder, "R", "packages.R"))
 
+  # Copy README.md
+  file.copy(file.path(folder_templates, "README.md"),
+            file.path(target_folder, "README.md"))
+
   if(drake) {
 
     file.copy(file.path(folder_templates, "_drake.R"),
@@ -73,12 +71,6 @@ prep_proj <- function(
   }
 
   proj_name = basename(target_folder)
-
-  if(identical(github, "private")) {
-    gh::gh("POST /user/repos", name = proj_name, private = TRUE)
-  } else if (identical(github, "public")) {
-    gh::gh("POST /user/repos", name = proj_name, private = FALSE)
-  }
 
   invisible(target_folder)
 

@@ -7,8 +7,7 @@
 prep_proj(
   target_folder,
   drake = TRUE,
-  default_folders = c("R", "python", "data", "plots", "lit", "doc"),
-  github = NULL
+  default_folders = c("R", "python", "data", "plots", "lit", "doc")
 )
 }
 \arguments{
@@ -17,8 +16,6 @@ prep_proj(
 \item{drake}{use drake?}
 
 \item{default_folders}{List of folders to create}
-
-\item{github}{Set up github page? If specified, must be must be either "private" or "public",}
 }
 \description{
 Sets up files, folders etc. Inspired by dflow::use_dflow
