@@ -18,9 +18,6 @@ prep_git_with_github(
 \description{
 Mimics default github setup without readme
 }
-\examples{
-prep_project("awesome_project")
-}
 \keyword{git,}
 \keyword{github}
 \keyword{project,}
