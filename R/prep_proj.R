@@ -16,16 +16,16 @@ prep_proj <- function(
 
   if(!"R" %in% default_folders) stop("Folder <R> necessary")
 
-  if(!dir.exists(target_folder)) {
+  if(!fs::dir_exists(target_folder)) {
     print(paste0("Creating ", target_folder))
-    dir.create(target_folder)
+    fs::dir_create(target_folder)
   } else {
     stop("Aborting, folder already exists")
   }
 
   # Create .here and Rstudio project file
-  fn_here = file.path(target_folder, ".here")
-  if(!file.exists(fn_here)) writeLines(character(), fn_here)
+  fn_here = fs::path(target_folder, ".here")
+  if(!fs::file_exists(fn_here)) writeLines(character(), fn_here)
 
   proj_name = basename(target_folder)
 
@@ -43,30 +43,38 @@ prep_proj <- function(
          "RnwWeave: knitr",
          "LaTeX: pdfLaTeX")
 
-  writeLines(x, file.path(target_folder, paste0(proj_name, ".Rproj")))
-
+  writeLines(x, fs::path(target_folder, paste0(proj_name, ".Rproj")))
 
   # Create folders
-  lapply(default_folders, function(x) dir.create(file.path(target_folder, x)))
+  lapply(default_folders, function(x) fs::dir_create(fs::path(target_folder, x)))
 
   # Create files
   path_mtools = find.package("matthiastools")
-  folder_templates = file.path(path_mtools, "templates")
+  folder_templates = fs::path(path_mtools, "templates")
 
   # Copy packages
-  file.copy(file.path(folder_templates, "packages.R"),
-            file.path(target_folder, "R", "packages.R"))
+  fs::file_copy(
+    fs::path(folder_templates, "packages.R"),
+    fs::path(target_folder, "R", "packages.R")
+  )
 
   # Copy README.md
-  file.copy(file.path(folder_templates, "README.md"),
-            file.path(target_folder, "docs", "README.rmd"))
+  fs::file_copy(
+    fs::path(folder_templates, "README.rmd"),
+    fs::path(target_folder, "docs", "README.rmd")
+  )
 
-  if(drake) {
+  if(isTRUE(drake)) {
 
-    file.copy(file.path(folder_templates, "_drake.R"),
-              file.path(target_folder, "_drake.R"))
-    file.copy(file.path(folder_templates, "plan.R"),
-              file.path(target_folder, "R", "plan.R"))
+    fs::file_copy(
+      fs::path(folder_templates, "_drake.R"),
+      fs::path(target_folder, "_drake.R")
+    )
+
+    fs::file_copy(
+      fs::path(folder_templates, "plan.R"),
+      fs::path(target_folder, "R", "plan.R")
+    )
 
   }
 
