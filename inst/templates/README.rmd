@@ -1,0 +1,11 @@
+---
+title: "README"
+output: 
+  github_document: default
+  html_document: default
+---
+
+## projectname
+
+For whom is it (if its service)?
+Whats does the project do?

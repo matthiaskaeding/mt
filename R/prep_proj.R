@@ -11,7 +11,7 @@
 
 prep_proj <- function(
   target_folder, drake = TRUE,
-  default_folders = c("R", "python", "data", "plots", "lit", "doc")
+  default_folders = c("R", "python", "data", "plots", "lit", "docs")
   ){
 
   if(!"R" %in% default_folders) stop("Folder <R> necessary")
@@ -59,7 +59,7 @@ prep_proj <- function(
 
   # Copy README.md
   file.copy(file.path(folder_templates, "README.md"),
-            file.path(target_folder, "README.md"))
+            file.path(target_folder, "docs", "README.rmd"))
 
   if(drake) {
 
