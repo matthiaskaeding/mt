@@ -7,7 +7,7 @@
 prep_proj(
   target_folder,
   drake = TRUE,
-  default_folders = c("R", "python", "data", "plots", "lit", "doc")
+  default_folders = c("R", "python", "data", "plots", "lit", "docs")
 )
 }
 \arguments{
