@@ -1,6 +1,6 @@
 
 
-plan = drake::drake_plan(
+plan <- drake::drake_plan(
 
 
 

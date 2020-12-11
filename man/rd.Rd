@@ -5,7 +5,7 @@
 \title{Run a drake project; unlock cache before
 Simple helper to avoid the need to create run.R}
 \usage{
-rd(unlock = TRUE)
+rd(unlock = TRUE, ...)
 }
 \arguments{
 \item{unluck}{Unlock cache before running drake::r_make}
