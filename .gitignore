@@ -5,3 +5,4 @@
 .Ruserdata
 install_package.R
 packages.R
+.DS_Store

@@ -6,14 +6,14 @@
 \usage{
 prep_proj(
   target_folder,
-  drake = TRUE,
+  targets = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "docs")
 )
 }
 \arguments{
 \item{target_folder}{Path of target folder}
 
-\item{drake}{use drake?}
+\item{targets}{use targets packages?}
 
 \item{default_folders}{List of folders to create}
 }

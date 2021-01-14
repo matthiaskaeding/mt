@@ -2,7 +2,7 @@
 #'
 #' Sets up files, folders etc. Inspired by dflow::use_dflow
 #' @param target_folder Path of target folder
-#' @param drake use drake?
+#' @param targets use targets packages?
 #' @param default_folders List of folders to create
 #' @keywords project, drake
 #' @export
@@ -10,7 +10,7 @@
 #' prep_project("awesome_project")
 
 prep_proj <- function(
-  target_folder, drake = TRUE,
+  target_folder, targets = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "docs")
   ){
 
@@ -64,21 +64,16 @@ prep_proj <- function(
     fs::path(target_folder, "docs", "README.rmd")
   )
 
-  if(isTRUE(drake)) {
+  if(isTRUE(targets)) {
 
     fs::file_copy(
-      fs::path(folder_templates, "_drake.R"),
-      fs::path(target_folder, "_drake.R")
-    )
-
-    fs::file_copy(
-      fs::path(folder_templates, "plan.R"),
-      fs::path(target_folder, "R", "plan.R")
+      fs::path(folder_templates, "_targets.R"),
+      fs::path(target_folder, "_targets.R")
     )
 
   }
 
-  proj_name = basename(target_folder)
+  proj_name <- basename(target_folder)
 
   invisible(target_folder)
 
