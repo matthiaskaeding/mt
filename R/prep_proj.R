@@ -52,11 +52,11 @@ prep_proj <- function(
   path_mtools = find.package("matthiastools")
   folder_templates = fs::path(path_mtools, "templates")
 
-  # Copy packages
-  fs::file_copy(
-    fs::path(folder_templates, "packages.R"),
-    fs::path(target_folder, "R", "packages.R")
-  )
+  # # Copy packages
+  # fs::file_copy(
+  #   fs::path(folder_templates, "packages.R"),
+  #   fs::path(target_folder, "R", "packages.R")
+  # )
 
   # Copy README.md
   fs::file_copy(
