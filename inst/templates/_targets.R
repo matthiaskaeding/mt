@@ -1,4 +1,4 @@
-library(here, include = "here")
+library(here, include.only = "here")
 library(targets)
 library(tarchetypes)
 library(data.table)
