@@ -15,6 +15,7 @@ make_fun <- function(name, folder = here::here("R")) {
   s <- "NAME <- function() {\n\n\n        \n}"
 
   s <- gsub("NAME", name, s)
+  if(!dir.exists(folder)) dir.create(folder)
   writeLines(s, filename)
   file.edit(filename)
 
