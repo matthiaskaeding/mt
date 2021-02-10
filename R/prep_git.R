@@ -1,6 +1,7 @@
 #' Prepares git in project folder
 #'
 #' Mimics default github setup without readme
+#' @param ... Unquoted paths of of folder. Use .... or <target_folder>
 #' @param target_folder target folder
 #' @param ignore Character vector of files to ignore
 #' @param github Create github repo?
@@ -9,11 +10,25 @@
 #' @export
 
 prep_git <- function(
+  ...,
   target_folder = NULL,
   ignore = c(".Rproj.user/", ".Rhistory",".DS_store"),
   github = TRUE,
   github_private = TRUE,
   repo_url = "https://github.com/matthiaskaeding/"){
+
+  dots <- match.call(expand.dots = FALSE)$...
+
+  stopifnot(length(dots) || !is.null(target_folder))
+  if(length(dots) > 0  & !is.null(target_folder)) {
+    stop("Either ... or <target_folder>")
+  }
+
+  if(is.null(target_folder)) {
+
+    target_folder <- do.call(file.path, lapply(dots, as.character))
+
+  }
 
   stopifnot(fs::dir_exists(target_folder))
 
