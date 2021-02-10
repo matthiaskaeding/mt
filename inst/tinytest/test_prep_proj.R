@@ -1,6 +1,6 @@
 target_folder0 <- tempdir()
 target_folder <- file.path(target_folder0, "tst_folder")
-prep_proj(target_folder)
+prep_proj(target_folder = target_folder)
 
 expect_true(
   dir.exists(target_folder)

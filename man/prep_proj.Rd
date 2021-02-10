@@ -5,7 +5,8 @@
 \title{Creates project folder.}
 \usage{
 prep_proj(
-  target_folder,
+  ...,
+  target_folder = NULL,
   targets = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "docs")
 )

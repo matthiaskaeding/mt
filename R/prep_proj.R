@@ -10,11 +10,24 @@
 #' prep_project("awesome_project")
 
 prep_proj <- function(
-  target_folder, targets = TRUE,
+  ..., target_folder = NULL, targets = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "docs")
   ){
 
   if(!"R" %in% default_folders) stop("Folder <R> necessary")
+
+  dots <- match.call(expand.dots = FALSE)$...
+
+  stopifnot(length(dots) || !is.null(target_folder))
+  if(length(dots) > 0  & !is.null(target_folder)) {
+    stop("Either ... or <target_folder>")
+  }
+
+  if(is.null(target_folder)) {
+
+    target_folder <- do.call(file.path, lapply(dots, as.character))
+
+  }
 
   if(!fs::dir_exists(target_folder)) {
     print(paste0("Creating ", target_folder))
