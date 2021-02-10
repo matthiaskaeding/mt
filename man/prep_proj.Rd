@@ -12,7 +12,9 @@ prep_proj(
 )
 }
 \arguments{
-\item{target_folder}{Path of target folder}
+\item{...}{Unquoted paths of of folder. Use .... or <target_folder>}
+
+\item{target_folder}{Path of target folder. Use .... or <target_folder>}
 
 \item{targets}{use targets packages?}
 

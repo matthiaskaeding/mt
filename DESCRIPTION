@@ -18,7 +18,7 @@ BugReports: https://github.com/matthiaskaeding/mt/issues
 Imports: 
     data.table,
     sf,
-    git2r,
+    gert,
     gh,
     clipr,
     uuid,

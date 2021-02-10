@@ -1,7 +1,8 @@
 #' Creates project folder.
 #'
 #' Sets up files, folders etc. Inspired by dflow::use_dflow
-#' @param target_folder Path of target folder
+#' @param ... Unquoted paths of of folder. Use .... or <target_folder>
+#' @param target_folder Path of target folder. Use .... or <target_folder>
 #' @param targets use targets packages?
 #' @param default_folders List of folders to create
 #' @keywords project, drake

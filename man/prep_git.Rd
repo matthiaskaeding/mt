@@ -5,17 +5,21 @@
 \title{Prepares git in project folder}
 \usage{
 prep_git(
-  path = NULL,
-  ignore = c(".Rproj.user", ".Rhistory", ".DS_store"),
+  target_folder = NULL,
+  ignore = c(".Rproj.user/", ".Rhistory", ".DS_store"),
   github = TRUE,
   github_private = TRUE,
   repo_url = "https://github.com/matthiaskaeding/"
 )
 }
 \arguments{
+\item{target_folder}{target folder}
+
 \item{ignore}{Character vector of files to ignore}
 
-\item{target_folder}{Path of target folder}
+\item{github}{Create github repo?}
+
+\item{github_private}{Should this be private (logical)?}
 }
 \description{
 Mimics default github setup without readme
