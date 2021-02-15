@@ -1,7 +1,6 @@
 #' Creates project folder.
 #'
 #' Sets up files, folders etc. Inspired by dflow::use_dflow
-#' @param ... Unquoted paths of of folder. Use .... or <target_folder>
 #' @param target_folder Path of target folder. Use .... or <target_folder>
 #' @param targets use targets packages?
 #' @param default_folders List of folders to create
@@ -11,24 +10,13 @@
 #' prep_project("awesome_project")
 
 prep_proj <- function(
-  ..., target_folder = NULL, targets = TRUE,
+  target_folder = NULL, targets = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "docs")
   ){
 
   if(!"R" %in% default_folders) stop("Folder <R> necessary")
-
-  dots <- match.call(expand.dots = FALSE)$...
-
-  stopifnot(length(dots) || !is.null(target_folder))
-  if(length(dots) > 0  & !is.null(target_folder)) {
-    stop("Either ... or <target_folder>")
-  }
-
-  if(is.null(target_folder)) {
-
-    target_folder <- do.call(file.path, lapply(dots, as.character))
-
-  }
+  if(is.null(target_folder)) stop("Specify target_folder")
+  if(fs::dir_exists(target_folder)) stop("target_folder must not exists")
 
   if(!fs::dir_exists(target_folder)) {
     print(paste0("Creating ", target_folder))
@@ -65,12 +53,6 @@ prep_proj <- function(
   # Create files
   path_mtools = find.package("matthiastools")
   folder_templates = fs::path(path_mtools, "templates")
-
-  # # Copy packages
-  # fs::file_copy(
-  #   fs::path(folder_templates, "packages.R"),
-  #   fs::path(target_folder, "R", "packages.R")
-  # )
 
   # Copy README.md
   fs::file_copy(

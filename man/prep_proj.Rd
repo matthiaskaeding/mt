@@ -5,15 +5,12 @@
 \title{Creates project folder.}
 \usage{
 prep_proj(
-  ...,
   target_folder = NULL,
   targets = TRUE,
   default_folders = c("R", "python", "data", "plots", "lit", "docs")
 )
 }
 \arguments{
-\item{...}{Unquoted paths of of folder. Use .... or <target_folder>}
-
 \item{target_folder}{Path of target folder. Use .... or <target_folder>}
 
 \item{targets}{use targets packages?}

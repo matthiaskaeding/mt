@@ -5,7 +5,6 @@
 \title{Prepares git in project folder}
 \usage{
 prep_git(
-  ...,
   target_folder = NULL,
   ignore = c(".Rproj.user/", ".Rhistory", ".DS_store"),
   github = TRUE,
@@ -14,8 +13,6 @@ prep_git(
 )
 }
 \arguments{
-\item{...}{Unquoted paths of of folder. Use .... or <target_folder>}
-
 \item{target_folder}{target folder}
 
 \item{ignore}{Character vector of files to ignore}
