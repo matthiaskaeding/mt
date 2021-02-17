@@ -1,0 +1,33 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# mt (short for matthiastools)
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This is a package collecting some util functions, mainly for specific use cases.
+Probably not useful for general use!
+
+
+
+## Installation
+
+You can install from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("matthiaskaeding/mt")
+```
