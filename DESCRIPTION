@@ -22,6 +22,7 @@ Imports:
     gh,
     clipr,
     uuid,
-    fs
+    fs,
+    targets
 Suggests:
     tinytest
