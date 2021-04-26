@@ -23,6 +23,7 @@ Imports:
     clipr,
     uuid,
     fs,
-    targets
+    targets,
+    vctrs
 Suggests:
     tinytest
