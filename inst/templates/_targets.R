@@ -6,7 +6,9 @@ library(ggplot2)
 library(purrr)
 
 lapply(
-  list.files(here("R"), pattern = "\\.R$", full.names = TRUE, all.files = FALSE),
+  list.files(
+    here("R"), pattern = "\\.R$", full.names = TRUE, all.files = FALSE
+  ),
   source
 )
 
