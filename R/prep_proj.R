@@ -57,7 +57,7 @@ prep_proj <- function(
   # Copy README.md
   fs::file_copy(
     fs::path(folder_templates, "README.rmd"),
-    fs::path(target_folder, "docs", "README.rmd")
+    fs::path(target_folder, "README.rmd")
   )
 
   if(isTRUE(targets)) {
