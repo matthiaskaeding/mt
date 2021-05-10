@@ -51,7 +51,7 @@ prep_proj <- function(
   lapply(default_folders, function(x) fs::dir_create(fs::path(target_folder, x)))
 
   # Create files
-  path_mtools = find.package("matthiastools")
+  path_mtools = find.package("mt")
   folder_templates = fs::path(path_mtools, "templates")
 
   # Copy README.md
