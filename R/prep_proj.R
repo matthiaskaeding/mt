@@ -60,6 +60,12 @@ prep_proj <- function(
     fs::path(target_folder, "README.rmd")
   )
 
+  # Copy .lintr
+  fs::file_copy(
+    fs::path(folder_templates, ".lintr"),
+    fs::path(target_folder, ".lintr")
+  )
+
   if(isTRUE(targets)) {
 
     fs::file_copy(
