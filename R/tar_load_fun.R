@@ -7,8 +7,10 @@
 
 tar_load_fun <- function(fun, envir = parent.frame()) {
 
+  fun <- deparse(substitute(fun))
   sargs <- names(as.list(args(fun)))
   sargs <- setdiff(sargs, c("", "..."))
-  targets::tar_load_raw(sargs, envir = envir)
-
+  for (sarg in sargs) {
+    try(targets::tar_load_raw(sarg, envir = envir))
+  }
 }
