@@ -21,3 +21,20 @@ print_at_cursor = function() {
   command = sprintf("print(%s)", obj)
   eval(parse(text = command))
 }
+#' Perform actions with object at cursor
+#'
+#' @export
+view_at_cursor = function() {
+  obj = atcursor::get_word_or_selection()
+  command = sprintf("View(%s)", obj)
+  eval(parse(text = command))
+}
+#' Perform actions with object at cursor
+#'
+#' @export
+print_summary_at_cursor = function() {
+  obj = atcursor::get_word_or_selection()
+  command = sprintf("print(summary(%s))", obj)
+  eval(parse(text = command))
+}
+
